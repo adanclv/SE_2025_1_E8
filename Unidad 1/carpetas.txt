@@ -1,0 +1,12 @@
+Unidad 1 
+	Arduino 
+		P1_Lectura_SensoresRecap
+	Python
+		Diagnostico
+		Clase
+		Ejercicios_tareas
+		Practicas
+
+Practica 1
+Conectar p1 a python cada vector leído calcular fo y almacenarlos el vector y fo en una lista, con el fin de almacenar todos los vectores leídos en un csv o txt.
+Leer eso desde python el programa 1 y aplicarle lo del diagnostico.

@@ -1,0 +1,62 @@
+Proyecto Unidad 1
+Que vincule Arduino con Python
+
+1. Generar población
+2. Iniciar ciclo:
+	2.1 Seleccionar padres - tamaño N
+	2.2 Generar hijos - cruza
+	2.3 Aplicar mutación sobre los hijos
+	2.4 Selección ambiental: Quedarse con los n mejores individuos (entre población anterior e hijos) combinar hijos y población y luego ordenar de menor a mayor (caso de minimizar) para eliminar los peores (pop = 100)
+	2.5 Si no se llega a condición de paro, entonces volver a 2.
+3. Imprimir la mejor solución
+
+Condición de paro: 
+1. Total de iteraciones
+2. Llegar al óptimo global
+
+Problemas a optimizar
+1. Minimizar la suma de cuadrados de los individuos de un vector.
+
+Valores configurables:
+n = tamaño de la población
+m = tamaño de los vectores <= 6
+Probabilidad de Mutación = 0.5%
+Gen = total de Generaciones
+
+Reportar diferentes resultados y llegar a una conclusión de como se comportaron.
+Fecha Entrega: 04 de Febrero
+
+------------------------
+Teorema de limite central: Dice que el promedio de la observación después de 30 observaciones se asemeja a una distribución normal.
+--------------------------------
+P1_LecturaPromedioDeSensores
+/*
+  - Preprocesamiento de datos -
+  Normalmente leemos unicamente una vez cada sensor y mandamos la información al puerto serial.
+  Esto es incorrecto debido a que podrian generarse inconsistencias en las lecturas, por lo que 
+  debe buscarse y tratar de aminorar esta situación mediante el preprocesamiento.
+*/
+int sensor = A0;
+void setup() {
+  Serial.begin(9600);
+}
+
+int totalLecturas = 30;
+int valor[30];
+void loop() {
+  for (int i = 0; i < totalLecturas; i++) {
+    valor[i] = analogRead(sensor);
+    delayMicroseconds(100);
+  }
+
+  int avg = 0;
+  for (int i = 0; i < totalLecturas; i++) {
+    avg += valor[i];
+  }
+  
+  avg /= totalLecturas;
+
+  Serial.println(avg);
+
+  delay(10);
+}
