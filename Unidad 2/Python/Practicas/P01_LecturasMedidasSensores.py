@@ -3,22 +3,6 @@ import pandas as pd
 import numpy as np
 
 
-def leerDatosPotenciometro():
-    arduino = conn.Serial(port='COM5', baudrate=9600, timeout=1)
-    print('Conectado')
-    valores = list()
-
-    while len(valores) < 100:
-        serialMonitor = arduino.readline()
-        serialMonitor = serialMonitor.decode().strip()
-        if not serialMonitor: continue
-        val = serialMonitor.split(',')
-        valores.append(val)
-
-    arduino.close()
-    return valores
-
-
 def elementsToInt(valores):
     for i in range(len(valores)):
         valores[i] = [int(val) for val in valores[i]]
@@ -27,16 +11,28 @@ def elementsToInt(valores):
 
 
 if __name__ == '__main__':
-    valores = leerDatosPotenciometro()
-    valores = elementsToInt(valores)
+    print('Práctica 1 Unidad 2')
+    arduino = conn.Serial(port='COM5', baudrate=9600, timeout=1)
+    print('Conectado')
+    valores = list()
 
+    while len(valores) < 600:
+        serialMonitor = arduino.readline().decode().strip()
+        if not serialMonitor: continue
+        val = list(map(int, serialMonitor.split(',')))
+        valores.append(val)
+
+    arduino.close()
+    # valores = elementsToInt(valores)
     df = pd.DataFrame(valores)
     df.to_csv('../Archivos/valores_P1.csv', index=False, header=False)
-    print("Desviación Estandar")
-    print("Media", np.std(df[0]))
-    print("Mediana", np.std(df[1]))
-    print("Mayor", np.std(df[2]))
-    print("Menor", np.std(df[3]))
+    print(df)
+    # print("Media", np.std(df[0]))
+    # print("Mediana", np.std(df[1]))
+    # print("Mayor", np.std(df[2]))
+    # print("Menor", np.std(df[3]))
+    # print("Moda", np.std(df[4]))
+    # print("Base", np.std(df[5]))
 
 # [[185, 45, 66, 141], [185, 45, 67, 141], [185, 45, 66, 141], [185, 45, 67, 141], [185, 45, 67, 141],
 #  [185, 45, 67, 141], [185, 45, 66, 141], [185, 45, 66, 141], [185, 45, 67, 141], [185, 45, 67, 141],

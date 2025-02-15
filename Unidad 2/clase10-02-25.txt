@@ -1,0 +1,10 @@
+Practica 3
+1.- Recopilación de datos
+2.- Identificación y tratamiento de valores vacios / nulos
+3.- Busqueda de Outliers visualmente
+4.- Identificación de Outliers con IQR
+5.- Tratamiento de Outlier con Iterpolación Lineal
+6.- Aplicación de Suavizamiento Exponencial
+
+Practica 4
+1. Con una instancia tratada... Realizar un análisis de sensibilidad de hiperparametros con suavizamiento exponencial simple

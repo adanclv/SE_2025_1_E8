@@ -16,6 +16,8 @@ Condición de paro:
 
 Problemas a optimizar
 1. Minimizar la suma de cuadrados de los individuos de un vector.
+2. One Max Problem (que todos los valores sean 1) -> Vector binario (maximización).
+3. Valor absoluto la suma de los individuos (que todos los valores sean 0 = minimización).
 
 Valores configurables:
 n = tamaño de la población
@@ -24,7 +26,6 @@ Probabilidad de Mutación = 0.5%
 Gen = total de Generaciones
 
 Reportar diferentes resultados y llegar a una conclusión de como se comportaron.
-Fecha Entrega: 04 de Febrero
 
 ------------------------
 Teorema de limite central: Dice que el promedio de la observación después de 30 observaciones se asemeja a una distribución normal.

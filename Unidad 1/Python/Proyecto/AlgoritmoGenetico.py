@@ -1,12 +1,22 @@
 import random as rand
 
 class AlgoritmoGenetico:
-    def __init__(self, minv, maxv, n, m, t):
-        self.minv = minv
-        self.maxv = maxv
+    def __init__(self, n, m, t):
+        self.problema = ''
+        self.minv = 0
+        self.maxv = 0
         self.n = n
         self.m = m
         self.t = t
+
+    def setMinv(self, newMin):
+        self.minv = newMin
+
+    def setMaxv(self, newMax):
+        self.maxv = newMax
+
+    def setProblema(self, newProblema):
+        self.problema = newProblema
 
     def crear_solucion(self):
         solucion = list(round(rand.randint(self.minv, self.maxv), 2) for i in range(self.m))
@@ -17,8 +27,9 @@ class AlgoritmoGenetico:
         return poblacion
 
     def funcion_objetivo(self, solucion):
-        fo = sum([s**2 for s in solucion])
-        return round(fo, 2)
+        if self.problema == 'valor_absoluto':
+            return sum(solucion)
+        return sum([s ** 2 for s in solucion])
 
     def get_padres(self, poblacion, totP): # torneo binario
         padres = list()
@@ -57,5 +68,7 @@ class AlgoritmoGenetico:
             t.append(self.funcion_objetivo(t))
 
         temp.sort(key=lambda x: x[-1])
+        if self.problema == 'one_max':
+            temp.reverse()
         newPob = [solucion[:-1] for solucion in temp[:self.n]]
         return newPob, temp[0][-1]
