@@ -2,15 +2,14 @@ import math
 from .suavizado import interpolacion_lineal
 
 def tratamiento_vacios(data):
-    n = len(data)
-    for fila in data:
-        fila[:2] = [float(e) if e.strip() else None for e in fila[:2]]
-
-    for i in range(n):
+    for i in range(len(data)):
         if data[i][1] is None:
             data[i][1] = interpolacion_lineal(data, i)
-
     return data
+
+def to_int(columna):
+    col = [int(e) if e.strip() else None for e in columna]
+    return col
 
 def tratar_outliers(data):
     data.sort(key=lambda x: x[1])

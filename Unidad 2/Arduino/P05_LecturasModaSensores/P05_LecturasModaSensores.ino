@@ -1,9 +1,10 @@
 int sensor = A0;
+const int totalLecturas = 30;
+
 void setup() {
   Serial.begin(9600);
 }
 
-int totalLecturas = 30;
 int valor[30];
 void loop() {
   for (int i = 0; i < totalLecturas; i++) {
@@ -24,7 +25,7 @@ void loop() {
   int auxiliarCount = 1;
   for (int i = 0; i < totalLecturas - 1; i++) {
     if (valor[i] != valor[i+1]) {
-      auxiliaCount = 1;
+      auxiliarCount = 1;
     } else {
       auxiliarCount++;
     }

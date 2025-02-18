@@ -1,13 +1,21 @@
 import matplotlib.pyplot as plt
 from procesamiento.carga_datos import cargar_data
 from procesamiento.evaluacion import calcRMSE
-from procesamiento.tratamiento import tratamiento_vacios, tratar_outliers
-from procesamiento.suavizado import calc_suavizado_exponencial
+from procesamiento.tratamiento import to_int, tratamiento_vacios, tratar_outliers
+from procesamiento.suavizado import interpolacion_lineal, calc_suavizado_exponencial
 from procesamiento.visualizacion import outliers_view, suavizamiento_view
 
+def elements_to_int(columna):
+    col = [int(e) if e.strip() else None for e in columna]
+    return col
+
 if __name__ == '__main__':
-    header, data = cargar_data('../Archivos/lecturaFoto.csv')
-    data = tratamiento_vacios(data)
+    header, data = cargar_data('../Archivos/lecturaFotoS3.csv')
+    data = list(zip(*data)) #.T
+    data[0] = to_int(data[0])
+    data[1] = to_int(data[1])
+    data = tratamiento_vacios(list(map(list, zip(*data))))
+
     outliers_view([fila[1] for fila in data]) # Visualización de outliers
     data = tratar_outliers(data)
     # alfas = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]  # linespace
