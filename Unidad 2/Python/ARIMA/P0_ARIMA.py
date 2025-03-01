@@ -5,9 +5,9 @@ datos = [100, 200, 50, 700, 20, 30, 200, 300, 500, 1200, 600, 400, 0, 100, 120]
 #modelo = ARIMA(datos, order=(2,1,1))  # ARIMA(p,d,q)
 modelo = ARIMA(datos, order=(1,2,1))  # ARIMA(p,d,q)
 ajuste = modelo.fit()
-pronostico = ajuste.forecast(steps=1)  # Un paso adelante
+pronostico = ajuste.forecast(steps=len(datos))  # Un paso adelante
 
-print("Pronóstico:", pronostico[0])
+print("Pronóstico:", pronostico)
 
 #S la series es NO ESTAACIONARIA, aparecera esta advertencia:
 # UserWarning: Non-stationary starting autoregressive parameters found

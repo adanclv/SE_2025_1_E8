@@ -18,14 +18,6 @@ class AlgoritmoGenetico:
     def setProblema(self, newProblema):
         self.problema = newProblema
 
-    def crear_solucion(self):
-        solucion = list(round(rand.randint(self.minv, self.maxv), 2) for i in range(self.m))
-        return solucion
-
-    def crear_poblacion(self):
-        poblacion = list(self.crear_solucion() for i in range(self.n))
-        return poblacion
-
     def funcion_objetivo(self, solucion):
         if self.problema == 'valor_absoluto':
             return sum(solucion)

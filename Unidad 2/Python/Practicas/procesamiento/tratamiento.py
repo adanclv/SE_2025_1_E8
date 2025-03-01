@@ -1,5 +1,5 @@
 import math
-from .suavizado import interpolacion_lineal
+from .modelos_pronostico import interpolacion_lineal
 
 def tratamiento_vacios(data):
     for i in range(len(data)):

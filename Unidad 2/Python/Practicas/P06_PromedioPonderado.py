@@ -1,11 +1,13 @@
+# w = 0.4
+# nValor = w * lecturaActual + (1 - w) * nValor
 from procesamiento.tratamiento import tratamiento_vacios, tratar_outliers_return_solo_valores
 import serial as conn
 import time as tm
 
 def leer_valor(conexion):
     conexion.reset_input_buffer()
-    valor = conexion.readline().decode().strip()
-    return valor
+    value = conexion.readline().decode().strip()
+    return value
 
 def suavizar_dato(real, suavizado, alfa):
     new_valor = alfa * real + (1 - alfa) * suavizado
@@ -19,11 +21,13 @@ def escribir_valor(conexion, valor):
     else:
         conexion.write(bytes([3]))
 
+
 if __name__ == "__main__":
     arduino = conn.Serial(port="COM5", baudrate=9600, timeout=1)
     alfa = 0.75
+    w = 0.4
     max_lecturas = 24
-    intervalo = 3
+    intervalo = 1.5
     real = [0 for _ in range(max_lecturas)]
     suavizada = [0 for _ in range(max_lecturas)]
     dias = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo']
@@ -50,6 +54,7 @@ if __name__ == "__main__":
                     suavizada[n] = real[n]
                 else:
                     nValor = round(suavizar_dato(real[n], suavizada[n - 1], alfa), 4)
+                    nValor = w * int(value) + (1 - w) * nValor  # Promedio Ponderado
                     suavizada[n] = nValor
 
                 escribir_valor(arduino, suavizada[n])

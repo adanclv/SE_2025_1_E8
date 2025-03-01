@@ -2,15 +2,11 @@ import matplotlib.pyplot as plt
 from procesamiento.carga_datos import cargar_data
 from procesamiento.evaluacion import calcRMSE
 from procesamiento.tratamiento import to_int, tratamiento_vacios, tratar_outliers
-from procesamiento.suavizado import interpolacion_lineal, calc_suavizado_exponencial
+from procesamiento.modelos_pronostico import interpolacion_lineal, calc_suavizado_exponencial
 from procesamiento.visualizacion import outliers_view, suavizamiento_view
 
-def elements_to_int(columna):
-    col = [int(e) if e.strip() else None for e in columna]
-    return col
-
 if __name__ == '__main__':
-    header, data = cargar_data('../Archivos/lecturaFotoS3.csv')
+    header, data = cargar_data('../Archivos/lecturaFotoS2.csv')
     data = list(zip(*data)) #.T
     data[0] = to_int(data[0])
     data[1] = to_int(data[1])

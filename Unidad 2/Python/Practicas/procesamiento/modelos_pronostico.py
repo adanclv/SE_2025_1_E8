@@ -1,4 +1,5 @@
 import numpy as np
+from statsmodels.tsa.arima.model import ARIMA
 
 def interpolacion_lineal(data, index):
     x1, y1 = None, None
@@ -28,5 +29,15 @@ def calc_suavizado_exponencial(serie, alfa):
     new_serie = np.zeros_like(serie) # reserva memoria y rellena con ceros
     new_serie[0] = serie[0]  # El primer valor suavizado es el primer valor de la serie real
     for t in range(1, len(serie)): #calcula los nuevos valores para la serie suavizada
-        new_serie[t] = alfa * serie[t] + (1 - alfa) * new_serie[t-1]
+        new_serie[t] = round(alfa * serie[t] + (1 - alfa) * new_serie[t-1], 4)
     return new_serie
+
+def calc_ARIMA(serie):
+    p = 1
+    d = 1
+    q = 1
+    n = len(serie)
+    modelo = ARIMA(serie, order=(p, d, q))
+    ajuste = modelo.fit()
+    pronostico = ajuste.forecast(steps=n)  # Un paso adelante
+    return pronostico
