@@ -4,7 +4,7 @@ from load_data import cargar_data
 
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 
-semana = 4
+semana = 1
 data = cargar_data(f'../Archivos/lecturaFotoS{semana}_tratada.csv')
 
 data = np.diff(data)
@@ -24,7 +24,6 @@ plot_acf(data, lags = 10, ax=ax1) #lags=10)
 
 # Grafica PACF (identifica p)
 plot_pacf(data, lags = 10, ax=ax2) #lags=10)
-
 
 plt.show()
 

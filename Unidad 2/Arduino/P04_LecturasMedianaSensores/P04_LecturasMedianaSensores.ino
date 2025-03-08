@@ -1,12 +1,12 @@
 /*
   Mediana
 */
-int sensor[] = { A0, A1, A2, A3 };
+int sensor = A0;
 void setup() {
   Serial.begin(9600);
 }
 
-int totalLecturas = 30;p
+int totalLecturas = 30;
 int valor[30];
 void loop() {
   for (int i = 0; i < totalLecturas; i++) {

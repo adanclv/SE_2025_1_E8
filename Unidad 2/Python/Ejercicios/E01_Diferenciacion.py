@@ -4,7 +4,7 @@ from statsmodels.tsa.stattools import adfuller
 from load_data import cargar_data
 
 if __name__ == "__main__":
-    semana = 3
+    semana = 1
     data = cargar_data(f'../Archivos/lecturaFotoS{semana}_tratada.csv')
 
     # Prueba de ADF en la serie original

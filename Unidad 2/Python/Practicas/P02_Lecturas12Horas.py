@@ -5,7 +5,7 @@ import serial as conn
 intervalo = 5 * 60  # minutos
 no_lectura = 1 # lectura en la que va
 max_lecturas = 144 # hasta donde llega
-semana = 5 # cambiar cada semana
+semana = 7 # cambiar cada semana
 
 arduino = conn.Serial(port="COM5", baudrate=9600, timeout=1)
 

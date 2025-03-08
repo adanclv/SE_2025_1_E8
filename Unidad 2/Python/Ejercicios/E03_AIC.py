@@ -5,7 +5,7 @@ from statsmodels.tsa.arima.model import ARIMA
 import warnings
 warnings.simplefilter("ignore")
 
-semana = 4
+semana = 1
 data = cargar_data(f'../Archivos/lecturaFotoS{semana}_tratada.csv')
 
 d = 1
