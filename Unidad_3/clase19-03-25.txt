@@ -1,0 +1,8 @@
+BUSQUEDA LOCAL
+
+Condiciones de paro:
+    1. Convergencia - iteraciones sin mejora.
+    2. Convergencia - optimo global.
+    3. Iteraciones / generaciones.
+    4. Evaluación de la función objetivo.
+    5. Tiempo.

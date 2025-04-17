@@ -1,0 +1,32 @@
+Práctica de la Unidad 3
+v = n
+n = 100
+       # va
+v1 = [ , , , ] # validos en el intervalo definido
+v2 = [ , , , ]
+v3 = [ , , , ]
+
+Ejecutar 30 veces para cada metaheurística (ls,ils,ts,sa,ga)
+
+TABLA
+LS-V1   |LS-V2  |...    |LS-V100
+1. vobj |       |       |
+2. vobj |       |       |
+3. vobj |       |       |
+.       |       |       |
+.       |       |       |
+30. vobj|       |       |
+IQR     |IQR    |IQR    |IQR
+
+guardar valores optimizaados y valor objetivo.
+
+Prueba estadística paramétrica:
+No paraméticos
+Ho. por lo regular es negativa
+Ha. lo opuesto
+
+IQR. Calcula el nivel de dispersión
+Pruebas POSTHOP. Cual de ellas es la que te da mejores resultados
+
+La idea es tener un sustento estadístico.
+

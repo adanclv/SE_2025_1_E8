@@ -1,4 +1,4 @@
-import numpy as np
+'''import numpy as np
 import pandas as pd
 
 data = [
@@ -62,4 +62,52 @@ df = pd.DataFrame(desviacion).T
 df.columns = ['Media', 'Mediana', 'Mayor', 'Menor', 'Moda', 'Base']
 print(df)
 
-print('Debug')
+print('Debug')'''
+while True:
+    cadena = input('Escribe un numero: ')
+    n = len(cadena)
+    num_valido = True
+    digitos = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    i = 0
+
+    if n == 0:
+        num_valido = False
+    else:
+        if cadena[i] in ['-', '+']:
+            i += 1
+
+        # Verificar la parte entera (debe haber al menos un dígito)
+        if i < n and cadena[i] in digitos:
+            while i < n and cadena[i] in digitos:
+                i += 1
+        else:
+            num_valido = False  # No hay parte entera válida
+
+        # Verificar la parte decimal (opcional)
+        if i < n and cadena[i] == '.':
+            i += 1
+            if i < n and cadena[i] in digitos:
+                while i < n and cadena[i] in digitos:
+                    i += 1
+            else:
+                num_valido = False  # Si hay un punto, debe haber al menos un dígito después
+
+        # Verificar la parte exponencial (opcional)
+        if i < n and cadena[i] in ['e', 'E']:
+            i += 1
+            if i < n and cadena[i] in ['+', '-']:  # Signo opcional después de 'e' o 'E'
+                i += 1
+            if i < n and cadena[i] in digitos:
+                while i < n and cadena[i] in digitos:
+                    i += 1
+            else:
+                num_valido = False  # Exponente sin número es inválido
+
+        # Si no consumió toda la cadena, no es válido
+        if i < n:
+            num_valido = False
+
+    if num_valido:
+        print('Válido')
+    else:
+        print('Inválido')

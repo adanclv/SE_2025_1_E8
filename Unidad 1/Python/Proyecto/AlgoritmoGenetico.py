@@ -51,7 +51,7 @@ class AlgoritmoGenetico:
             for i in range(len(hijo)):
                 r = rand.randint(0, 100)
                 if r < self.t:
-                    hijo[i] = round(rand.randint(self.minv, self.maxv), 2)
+                    hijo[i] = rand.randint(self.minv, self.maxv)
         return hijos
 
     def seleccion(self, poblacion, hijos):

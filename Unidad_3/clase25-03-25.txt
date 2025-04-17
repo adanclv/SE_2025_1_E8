@@ -1,0 +1,18 @@
+PRACTICA 1
+30 vo de 1 va (LS)
+
+Tabla resumen
+AL (recocido)
+#   |LS     |ILS    |AL     |TS     |GA
+1   |IQR    |IQR    |IQR    |...    |...
+2   |...    |...    |       |       |
+3   |       |       |       |       |
+
+***Imprimir cual fue la primera ganancia que tenia va
+
+* valores por encima del minimo para VA
+
+Asignación
+- Archivo va
+- Consideraciones para hacer va
+- Código para hacerlo
