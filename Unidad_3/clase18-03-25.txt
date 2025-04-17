@@ -26,7 +26,7 @@ Ho. por lo regular es negativa
 Ha. lo opuesto
 
 IQR. Calcula el nivel de dispersión
-Pruebas POSTHOP. Cual de ellas es la que te da mejores resultados
+Pruebas POSTHOC. Cual de ellas es la que te da mejores resultados
 
 La idea es tener un sustento estadístico.
 
