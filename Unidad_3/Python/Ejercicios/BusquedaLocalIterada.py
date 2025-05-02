@@ -40,7 +40,7 @@ if __name__ == '__main__':
     best_solucion = solucion_inicial.copy()
     best_vo = funcion_objetivo(solucion_inicial)
     it_ils = 100
-    it = 10000
+    it = 1000
     print(f'Solución inicial: {solucion_inicial}')
     print(f'Best vo: {best_vo}')
 
@@ -61,7 +61,7 @@ if __name__ == '__main__':
             best_vo = vn_solucion
             best_solucion = solucion_inicial
         it_ils -= 1
-        it = 10000
+        it = 1000
 
     print(f'Best Solución: {best_solucion}')
     print(f'Best valor: {best_vo}')
