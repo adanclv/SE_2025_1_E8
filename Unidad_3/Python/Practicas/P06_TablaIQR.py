@@ -35,4 +35,4 @@ if __name__ == "__main__":
             IQR = calcular_IQR(grupo['g'])
             rows.append([h, va_grupo, IQR])
         df = pd.DataFrame(rows, columns=['h', 'va', 'iqr'])
-        # df.to_csv(f'{path_iqr + file[:file.index('.')]}_IQR.csv', index=False)
+        df.to_csv(f'{path_iqr + file[:file.index('.')]}_IQR.csv', index=False)

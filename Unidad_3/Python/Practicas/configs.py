@@ -3,7 +3,7 @@ preferencias_servicios = {  # 0 = minimizacion -- 1 = maximizacion
     "humedad": [40, 70, 0, 0.2, 3],
     "ruido": [30, 65, 0, 0.1, 1],
     "int_luminosa": [300, 1000, 1, 0.3, 5]
-}
+} # [minimo, maximo, problema, peso, costo]
 
 multiplicador = {
     "temperatura": 1.4,

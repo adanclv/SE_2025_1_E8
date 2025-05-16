@@ -5,7 +5,6 @@ from Unidad_3.Python.Practicas.P03_BusquedaTabu import mainTS as TS
 from Unidad_3.Python.Practicas.P04_RecocidoSimulado import mainAL as AL
 from Unidad_3.Python.Practicas.P05_AlgoritmoGentico import mainGA as GA
 from configs import preferencias_servicios
-import math
 
 def cargar_valores(archivo):
     with open(archivo, 'r') as file:

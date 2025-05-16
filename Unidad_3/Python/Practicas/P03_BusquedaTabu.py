@@ -1,17 +1,7 @@
 import random as rand
 from Unidad_3.Python.Problema.FuncionObjetivo import calcula_ganancia as fo_calcula_ganancia
 from Unidad_3.Python.Practicas.configs import ALFA, BETA
-
-def get_random_value(pref):
-    minimo, maximo, *_ = pref
-    valor = rand.randint(minimo, maximo)
-    return valor
-
-def crea_solucion(pref_servicios):
-    solucion = {
-        key: get_random_value(pref_servicios[key]) for key in pref_servicios.keys()
-    }
-    return solucion
+from Unidad_3.Python.Practicas.utils import crear_solucion_inicial, get_random_value
 
 def genera_vecina(pref, solucion, lista_tabu):
     new_solucion = solucion.copy()
@@ -51,7 +41,7 @@ def mainTS(pref_servicios, valores_actuales):
     max_it_local = 200
     it_local = 0
 
-    solucion_temp = crea_solucion(pref_servicios)  # S0
+    solucion_temp = crear_solucion_inicial(pref_servicios)  # S0
     best_solucion = solucion_temp.copy()  # copia de los valores
     best_vo = fo_calcula_ganancia(ALFA, BETA, pref_servicios, valores_actuales, solucion_temp)
     print(f'Solución inicial: {solucion_temp} - Best vo: {best_vo}')

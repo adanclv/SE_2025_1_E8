@@ -9,10 +9,10 @@ def calcula_ganancia(alfa, beta, criterios, v_actuales, v_optimizados):
 
     objEnergia = s_energia.energia(criterios)
     satisfaccion_energia = objEnergia.calcula_energia(v_optimizados, v_actuales)
-    ganacia_energia = objEnergia.calcula_ganancia_energia(satisfaccion_energia)
+    ganancia_energia = objEnergia.calcula_ganancia_energia(satisfaccion_energia)
     # print(f'Ganancia Energia: {ganacia_energia}')
 
-    ganancia_solucion = alfa * ganancia_satisfaccion + beta * ganacia_energia
+    ganancia_solucion = alfa * ganancia_satisfaccion + beta * ganancia_energia
     return ganancia_solucion
 
 if __name__ == '__main__':

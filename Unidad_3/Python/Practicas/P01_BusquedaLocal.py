@@ -1,24 +1,6 @@
-import random as rand
 from Unidad_3.Python.Problema.FuncionObjetivo import calcula_ganancia as fo_calcula_ganancia
 from Unidad_3.Python.Practicas.configs import ALFA, BETA
-
-def genera_vecina(pref, solucion):
-    new_solucion = solucion.copy()
-    idx_servicio = rand.randint(0, len(pref) - 1)
-    key = list(pref.keys())[idx_servicio]
-    new_solucion[key] = get_random_value(pref[key])
-    return new_solucion
-
-def get_random_value(pref):
-    minimo, maximo, *_ = pref
-    valor = rand.randint(minimo, maximo)
-    return valor
-
-def crear_solucion_inicial(prefServicios):
-    solucion_inicial = {
-        key: get_random_value(prefServicios[key]) for key in prefServicios.keys()
-    }
-    return solucion_inicial
+from Unidad_3.Python.Practicas.utils import crear_solucion_inicial, genera_vecina
 
 def mainLS(prefServicios, valoresActuales):
     tot_mejoras_buscadas = 10

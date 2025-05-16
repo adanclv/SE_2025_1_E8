@@ -1,22 +1,12 @@
 import random as rand
 from Unidad_3.Python.Problema.FuncionObjetivo import calcula_ganancia as fo_calcula_ganancia
 from Unidad_3.Python.Practicas.configs import ALFA, BETA, N_POP, N_PARENTS, N_SERVICIOS, PROBABILIDAD_MUTA
-
-def get_random_value(pref):
-    minimo, maximo, *_ = pref
-    valor = rand.randint(minimo, maximo)
-    return valor
-
-def crear_solucion(pref_servicios):
-    solucion = {
-        key: get_random_value(pref_servicios[key]) for key in pref_servicios.keys()
-    }
-    return solucion
+from Unidad_3.Python.Practicas.utils import crear_solucion_inicial, get_random_value
 
 def crear_poblacion_inicial(pref_servicios):
     poblacion_inicial = list()
     for i in range(N_POP):
-        solucion = crear_solucion(pref_servicios)
+        solucion = crear_solucion_inicial(pref_servicios)
         poblacion_inicial.append(solucion)
     return poblacion_inicial
 
