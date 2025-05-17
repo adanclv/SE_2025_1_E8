@@ -28,7 +28,6 @@ def peso_formula2(peso, x, real, suavizado):
     return peso
 
 if __name__ == "__main__":
-    arduino = conn.Serial(port="COM5", baudrate=9600, timeout=1)
     alfa = 0.75
     w = 0.5
     x = 0.2
@@ -41,6 +40,8 @@ if __name__ == "__main__":
     dia = 0
     n = 0
     try:
+        arduino = conn.Serial(port="COM5", baudrate=9600, timeout=1)
+
         while True:
             tm.sleep(intervalo)
             value = leer_valor(arduino)

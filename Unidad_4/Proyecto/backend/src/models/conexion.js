@@ -6,14 +6,14 @@ const config = {
     server:'localhost',
     database:'BD_UNIDAD_4_SE_2025_1',
     options: {
-        encrypt: true, // for azure
-        trustServerCertificate: true // change to true for local dev / self-signed certs
+        encrypt: true,
+        trustServerCertificate: true
       }
 }
 
 const getConnection = async function (){
     try{
-        const conexion = await sql.connect(config) //conexion es el objeto que representa la conexion logica con la base de datos
+        const conexion = await sql.connect(config)
         return conexion
     }
     catch(error){
